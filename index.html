@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Muslim — Wajib & Sunnah Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'brand-bg': '#0f172a',
+              'brand-panel': '#111827',
+              'brand-card': '#0b1220',
+              'brand-line': '#1f2937',
+              'brand-text': '#e5e7eb',
+              'brand-muted': '#94a3b8',
+              'brand-green': '#22c55e',
+              'brand-sky': '#38bdf8',
+              'brand-red': '#ef4444',
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9F%A9%3C/text%3E%3C/svg%3E">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+<script>window.rechartsLoaded = false;</script>
+<script src="https://unpkg.com/recharts/umd/Recharts.min.js" onload="window.rechartsLoaded = true;"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="font-sans">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
