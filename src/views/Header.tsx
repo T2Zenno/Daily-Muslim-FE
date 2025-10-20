@@ -1,6 +1,6 @@
 import React from 'react';
-import { Language } from './types';
-import { Icon, Pill, Button } from './ui';
+import { Language } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
 
 export const Header: React.FC<{
     t: (k: string, r?: any) => string;

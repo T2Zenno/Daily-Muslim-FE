@@ -1,8 +1,8 @@
 import React from 'react';
-import { Language, HabitFrequency, DirectoryNode, Module } from './types';
-import { TABS, HIJRI_MONTHS } from './constants';
-import { gregorianToHijri } from './utils';
-import { Icon, Badge } from './ui';
+import { Language, HabitFrequency, DirectoryNode, Module } from '../lib/types';
+import { TABS, HIJRI_MONTHS } from '../lib/constants';
+import { gregorianToHijri } from '../lib/utils';
+import { Icon, Badge } from '../lib/ui';
 
 const HijriDateDisplay: React.FC<{ t: (k: string) => string; date: Date, lang: Language }> = ({ t, date, lang }) => {
     const hijri = gregorianToHijri(date);

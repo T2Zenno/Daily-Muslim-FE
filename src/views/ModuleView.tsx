@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Module, Language } from './types';
-import { Button } from './ui';
+import { Language } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
 import { QiblaDirection } from './QiblaDirection';
 
 export const ModuleView: React.FC<{

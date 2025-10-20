@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Module, Language } from './types';
-import { Button } from './ui';
+import { Language } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
 
 export const ModuleModal: React.FC<{
     isOpen: boolean; onClose: () => void; onSave: (moduleId: string, newTitle: string, newContent: string) => void; moduleToEdit?: Module; t: (k: string) => string; lang: Language;

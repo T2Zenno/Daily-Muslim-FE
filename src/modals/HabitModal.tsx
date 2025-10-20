@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Habit, HabitType, HabitFrequency, Language } from './types';
-import { FREQUENCY_OPTIONS, DAY_OF_WEEK_OPTIONS, HIJRI_MONTHS } from './constants';
-import { Button, Icon } from './ui';
+import { Language } from '../lib/types';
+import { FREQUENCY_OPTIONS, DAY_OF_WEEK_OPTIONS, HIJRI_MONTHS, TABS } from '../lib/constants';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
 
 export const HabitModal: React.FC<{
     isOpen: boolean; onClose: () => void; onSave: (data: any, id?: string) => Promise<void>; onDelete: (id: string) => void; habitToEdit?: Habit; t: (k: string) => string; lang: Language;

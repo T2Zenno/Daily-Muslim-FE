@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { Language } from './types';
-import { Button, Icon } from './ui';
+import { Language } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
 
 const InfoTooltip: React.FC<{ text: string }> = ({ text }) => (
     <span className="group relative ml-1">

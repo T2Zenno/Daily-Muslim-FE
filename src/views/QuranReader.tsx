@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { EqSurahInfo, EqSurahDetail, Language } from './types';
-import { Button, Icon } from './ui';
+import { Language, EqSurahInfo, EqSurahDetail } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
 
 export const QuranReader: React.FC<{
     t: (k: string) => string;
@@ -154,7 +154,7 @@ export const QuranReader: React.FC<{
                                             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-200 text-sm font-bold dark:bg-brand-bg">{surah.nomor}</span>
                                             <span className="text-2xl font-bold" dir="rtl">{surah.nama}</span>
                                         </div>
-                                        <h3 className="mt-2 font-bold">{surah.namaLatin}</h3>
+                                        <h3 className="mt-2 font-bold overflow-hidden text-ellipsis whitespace-nowrap">{surah.namaLatin}</h3>
                                         <p className="text-sm text-slate-500 dark:text-brand-muted">{surah.arti}</p>
                                     </div>
                                     <div className="mt-2 text-right text-xs text-slate-400 dark:text-slate-500">

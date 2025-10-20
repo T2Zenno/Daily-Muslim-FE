@@ -17,6 +17,17 @@ export default defineConfig(({ mode }) => {
         port: 8080,
         host: "0.0.0.0",
         allowedHosts: ['13e1cd8b471d.ngrok-free.app','immune-smoothly-quail.ngrok-free.app', '.ngrok.io'],
+        mimeTypes: {
+          'text/javascript': ['.ts'],
+        },
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            if (req.url?.endsWith('.ts')) {
+              res.setHeader('Content-Type', 'text/javascript');
+            }
+            next();
+          });
+        },
       },
       plugins: [react()],
       define: {

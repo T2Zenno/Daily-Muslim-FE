@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Habit, HabitFrequency, DBState, Streak } from './types';
-import { Badge, Button } from './ui';
-import { periodKey, isDueThisPeriod } from './utils';
-import { DAY_OF_WEEK_OPTIONS } from './constants';
+import { Language } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
+import { isoDate, isoWeek, isDueThisPeriod, periodKey } from '../lib/utils';
+import { FREQUENCY_OPTIONS, DAY_OF_WEEK_OPTIONS, HIJRI_MONTHS, TABS } from '../lib/constants';
 
 const ReminderInfo: React.FC<{ habit: Habit; t: (k: string) => string; }> = ({ habit, t }) => {
     const { schedule, freq } = habit;

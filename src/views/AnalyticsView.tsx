@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { Habit, DBState, Language, HabitFrequency } from './types';
-import { isoDate, isoWeek, isDueThisPeriod } from './utils';
+import { Language } from '../lib/types';
+import { isoDate, isoWeek, isDueThisPeriod, periodKey } from '../lib/utils';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const CompletionHeatmap: React.FC<{

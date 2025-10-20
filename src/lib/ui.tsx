@@ -5,13 +5,13 @@ export const Icon = ({ children, className = '' }: { children: React.ReactNode, 
 );
 
 export const Pill = React.memo(({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
-    <div className={`flex items-center gap-2 rounded-full border border-slate-200 dark:border-brand-line bg-slate-100 dark:bg-brand-card px-3 py-1.5 ${className}`}>
+    <div className={`flex items-center gap-2 rounded-full border border-slate-200 dark:border-brand-line bg-slate-100 dark:bg-brand-card px-3 py-1.5 overflow-hidden text-ellipsis whitespace-nowrap max-w-full ${className}`}>
         {children}
     </div>
 ));
 
 export const Badge = React.memo(({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
-    <span className={`whitespace-nowrap rounded-full border border-slate-300 dark:border-brand-line px-2 py-0.5 text-xs text-slate-600 dark:text-slate-300 ${className}`}>
+    <span className={`whitespace-nowrap overflow-hidden text-ellipsis inline-block max-w-full rounded-full border border-slate-300 dark:border-brand-line px-2 py-0.5 text-xs text-slate-600 dark:text-slate-300 ${className}`}>
         {children}
     </span>
 ));

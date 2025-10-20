@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from 'react';
-import { Language } from './types';
-import { Button, Pill } from './ui';
+import { Language } from '../lib/types';
+import { Button, Pill } from '../lib/ui';
 
 export const Auth: React.FC<{
     t: (k: string) => string;

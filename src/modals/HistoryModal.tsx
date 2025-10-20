@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Habit, DBState, Language } from './types';
-import { Button } from './ui';
-import { isoDate } from './utils';
+import { Language } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
+import { isoDate, isoWeek, isDueThisPeriod, periodKey } from '../lib/utils';
 
 export const HistoryModal: React.FC<{
     isOpen: boolean; onClose: () => void; habit?: Habit; completions?: DBState['completions'][string]; t: (k: string) => string; lang: Language;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { EqDuaListItem, EqDuaDetail, Language } from './types';
-import { Button, Badge } from './ui';
+import { Language, EqDuaListItem, EqDuaDetail } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
 
 export const DuaReader: React.FC<{
     t: (k: string) => string;
@@ -13,6 +13,7 @@ export const DuaReader: React.FC<{
     const [error, setError] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
+    const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
     const API_BASE = 'https://equran.id/api';
 
@@ -88,15 +89,15 @@ export const DuaReader: React.FC<{
                     <>
                         <strong className="flex items-center gap-2 text-lg">🤲 {t('duas')}</strong>
                         <div className="my-3 h-px bg-slate-200 dark:bg-brand-line"></div>
-                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input 
-                                type="text" 
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <input
+                                type="text"
                                 placeholder={t('searchDuaPlaceholder')}
                                 value={searchTerm}
                                 onChange={e => setSearchTerm(e.target.value)}
                                 className="w-full rounded-md border border-slate-300 dark:border-brand-line bg-slate-50 dark:bg-brand-card p-2 outline-none focus:border-sky-500"
                             />
-                            <select 
+                            <select
                                 value={selectedCategory}
                                 onChange={e => setSelectedCategory(e.target.value)}
                                 className="w-full rounded-md border border-slate-300 dark:border-brand-line bg-slate-50 dark:bg-brand-card p-2 outline-none focus:border-sky-500"
@@ -105,6 +106,15 @@ export const DuaReader: React.FC<{
                                 <option value="">{t('allCategories')}</option>
                                 {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
                             </select>
+                            <select
+                                value={viewMode}
+                                onChange={e => setViewMode(e.target.value as 'grid' | 'list')}
+                                className="w-full rounded-md border border-slate-300 dark:border-brand-line bg-slate-50 dark:bg-brand-card p-2 outline-none focus:border-sky-500"
+                                aria-label={t('viewMode')}
+                            >
+                                <option value="grid">{t('gridView')}</option>
+                                <option value="list">{t('listView')}</option>
+                            </select>
                         </div>
                         {error ? (
                             <div className="py-10 text-center text-red-500">
@@ -112,15 +122,15 @@ export const DuaReader: React.FC<{
                                 <Button onClick={fetchDuas} className="ml-4">{t('retry')}</Button>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4">
+                            <div className={`mt-4 ${viewMode === 'grid' ? 'grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3' : 'space-y-4'}`}>
                                 {filteredDuas.map(dua => (
-                                    <div key={dua.id} className="flex cursor-pointer flex-col justify-between rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-sky-500 hover:bg-white dark:border-brand-line dark:bg-brand-card dark:hover:border-sky-400 dark:hover:bg-brand-panel" onClick={() => handleSelectDua(dua.id)}>
-                                        <div>
+                                    <div key={dua.id} className={`cursor-pointer rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-sky-500 hover:bg-white dark:border-brand-line dark:bg-brand-card dark:hover:border-sky-400 dark:hover:bg-brand-panel overflow-hidden ${viewMode === 'list' ? 'flex items-center justify-between' : 'flex flex-col justify-between'}`} onClick={() => handleSelectDua(dua.id)}>
+                                        <div className={viewMode === 'list' ? 'flex-1 min-w-0' : ''}>
                                             <Badge className="mb-2">{dua.grup}</Badge>
-                                            <h3 className="font-bold">{dua.nama}</h3>
-                                            <p className="mt-2 text-right text-sm text-slate-500 dark:text-brand-muted" dir="rtl">{dua.ar.substring(0, 50)}...</p>
+                                            <h3 className="font-bold overflow-hidden text-ellipsis whitespace-nowrap">{dua.nama}</h3>
+                                            {viewMode === 'grid' && <p className="mt-2 text-right text-sm text-slate-500 dark:text-brand-muted" dir="rtl">{dua.ar.substring(0, 50)}...</p>}
                                         </div>
-                                        <div className="mt-3 text-right">
+                                        <div className={`text-right ${viewMode === 'list' ? 'ml-4 flex-shrink-0' : 'mt-3'}`}>
                                             <span className="text-sm font-semibold text-sky-600 dark:text-sky-400">{t('viewDetail')} &rarr;</span>
                                         </div>
                                     </div>

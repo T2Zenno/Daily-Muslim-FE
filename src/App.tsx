@@ -1,25 +1,25 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import { type Language, type Habit, type DBState, type HabitFrequency, type DirectoryNode, type HabitNames } from './types';
-import { I18N, DEFAULT_MODULES } from './constants';
-import { isoDate, isoWeek, periodKey, seed, uid, isDueThisPeriod, isReminderScheduledForToday } from './utils';
-import { login, register, logout, getUser, getHabits, createHabit, updateHabit, deleteHabit, getCompletions, toggleCompletion, exportData, importData, type User, type HabitApi, type CompletionApi } from './api';
+import { type Language, type Habit, type DBState, type HabitFrequency, type DirectoryNode, type HabitNames } from './lib/types';
+import { I18N, DEFAULT_MODULES } from './lib/constants';
+import { isoDate, isoWeek, periodKey, seed, uid, isDueThisPeriod, isReminderScheduledForToday } from './lib/utils';
+import { login, register, logout, getUser, getHabits, createHabit, updateHabit, deleteHabit, getCompletions, toggleCompletion, exportData, importData, type User, type HabitApi, type CompletionApi } from './api/api';
 
-import { ScrollToTopButton, LoadingPopup } from './ui';
-import { Header } from './Header';
-import { Sidebar } from './Sidebar';
-import { HabitList } from './HabitComponents';
-import { HabitModal } from './HabitModal';
-import { HistoryModal } from './HistoryModal';
-import { AnalyticsView } from './AnalyticsView';
-import { ModuleView } from './ModuleView';
-import { CategoryModal } from './CategoryModal';
-import { QuranReader } from './QuranReader';
-import { DuaReader } from './DuaReader';
-import { PrayerTimesView } from './PrayerTimesView';
-import { HadithReader } from './HadithReader';
-import { ZakatCalculator } from './ZakatCalculator';
-import { InheritanceCalculator } from './InheritanceCalculator';
-import { Auth } from './Auth';
+import { ScrollToTopButton, LoadingPopup } from './lib/ui';
+import { Header } from './views/Header';
+import { Sidebar } from './views/Sidebar';
+import { HabitList } from './views/HabitComponents';
+import { HabitModal } from './modals/HabitModal';
+import { HistoryModal } from './modals/HistoryModal';
+import { AnalyticsView } from './views/AnalyticsView';
+import { ModuleView } from './views/ModuleView';
+import { CategoryModal } from './modals/CategoryModal';
+import { QuranReader } from './views/QuranReader';
+import { DuaReader } from './views/DuaReader';
+import { PrayerTimesView } from './views/PrayerTimesView';
+import { HadithReader } from './views/HadithReader';
+import { ZakatCalculator } from './views/ZakatCalculator';
+import { InheritanceCalculator } from './views/InheritanceCalculator';
+import { Auth } from './modals/Auth';
 
 
 export default function App() {

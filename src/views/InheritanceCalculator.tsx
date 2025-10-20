@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Language } from './types';
-import { Button, Icon } from './ui';
-import { faroidh } from './faroidh';
+import { Language } from '../lib/types';
+import { Button, Icon, Badge, Pill } from '../lib/ui';
+import { faroidh } from '../lib/faroidh';
 
 // UMD library from CDN
 declare const Recharts: any;
