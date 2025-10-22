@@ -45,8 +45,6 @@ export const Header: React.FC<{
                         <Button onClick={onAddHabit} className="bg-green-100 border-green-200 text-green-800 hover:bg-green-200 font-bold dark:bg-green-500/20 dark:border-green-500/50 dark:hover:bg-green-500/30 dark:text-green-300">
                             ＋ {t('addHabit')}
                         </Button>
-                        <Button onClick={onExport}><Icon>⬇️</Icon>{t('export')}</Button>
-                        <Button onClick={onImportClick}><Icon>⬆️</Icon>{t('import')}</Button>
                         <Button onClick={onLogout} className="border-red-300 bg-red-100 text-red-800 hover:bg-red-200 dark:border-red-500/50 dark:bg-red-500/20 dark:text-red-300 dark:hover:bg-red-500/30">
                             <Icon>➡️</Icon>{t('logout')}
                         </Button>
